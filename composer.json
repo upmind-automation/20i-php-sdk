@@ -1,0 +1,31 @@
+{
+    "name": "upmind/20i-php-sdk",
+    "description": "Upmind redistribution/fork of the official 20i PHP SDK",
+    "version": "1.0.6",
+    "type": "library",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Harry Lewis",
+            "email": "harry@upmind.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "TwentyI\\API\\": [
+                "api-modules-1.0.6/lib/TwentyI/API/"
+            ]
+        }
+    },
+    "scripts": {
+        "test-compat": "php56 \"`which phpunit`\" api-modules-1.0.6/test",
+        "test": "phpunit api-modules-1.0.6/test"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0"
+    },
+    "replace": {
+        "20i/api-modules": "*"
+    }
+}
