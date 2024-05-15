@@ -1,7 +1,7 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->in(__DIR__ . '/src');
+    ->in(__DIR__ . '/api-modules-1.0.6/lib');
 
 return (new PhpCsFixer\Config())
     ->setFinder($finder)
