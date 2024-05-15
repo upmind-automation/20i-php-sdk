@@ -1,0 +1,5 @@
+parameters:
+    level: 4
+    paths:
+        - api-modules-1.0.6/lib
+        - api-modules-1.0.6/test
