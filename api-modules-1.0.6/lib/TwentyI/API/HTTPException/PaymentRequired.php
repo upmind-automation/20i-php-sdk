@@ -10,6 +10,6 @@ class PaymentRequired extends \TwentyI\API\HTTPException {
       * @param mixed|null $decoded_body
       */
     public function __construct($full_url, $decoded_body = null) {
-        return parent::__construct($full_url, $decoded_body, 402);
+        parent::__construct($full_url, $decoded_body, 402);
     }
 }

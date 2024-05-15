@@ -34,13 +34,12 @@ class HTTPException extends \TwentyI\API\Exception {
     }
 
     /**
-     * @property mixed|null The error message payload in decoded form. This is
-     *     particularly of interest for 400 errors.
+     * @var mixed|null The error message payload in decoded form. This is particularly of interest for 400 errors.
      */
     public $decodedBody;
 
     /**
-     * @property string The URL requested
+     * @var string The URL requested
      */
     public $fullURL;
 
