@@ -1,4 +1,5 @@
 <?php
+
 namespace TwentyI\API;
 
 /**
@@ -65,7 +66,7 @@ class Authentication extends REST
             throw new \TwentyI\API\HTTPException("User is required");
         }
 
-        if ( !is_string($user)) {
+        if (!is_string($user)) {
             throw new \TwentyI\API\HTTPException("User must be a string");
         }
 

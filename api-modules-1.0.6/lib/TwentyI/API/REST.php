@@ -1,5 +1,7 @@
 <?php
+
 namespace TwentyI\API;
+
 /**
  * Helper class for 20i API calls.
  *
@@ -236,7 +238,8 @@ class REST
      * @param string|null $user_agent
      * @return self
      */
-    public function setUserAgent($user_agent) {
+    public function setUserAgent($user_agent)
+    {
         $this->userAgent = $user_agent;
         return $this;
     }

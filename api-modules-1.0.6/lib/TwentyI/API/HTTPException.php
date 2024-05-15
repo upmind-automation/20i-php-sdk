@@ -1,10 +1,13 @@
 <?php
+
 namespace TwentyI\API;
+
 /**
  * Wraps an HTTP error. You'll have the literal HTTP error number in the error
  * code.
  */
-class HTTPException extends \TwentyI\API\Exception {
+class HTTPException extends \TwentyI\API\Exception
+{
     /**
      * This dispatches to the appropriate HTTP exception object.
      *
@@ -67,7 +70,6 @@ class HTTPException extends \TwentyI\API\Exception {
                 $message = "$main_message: $text_body";
             } else {
                 $message = "$main_message: <" . strlen($text_body) . " byte response>";
-
             }
         } else {
             $message = $main_message;

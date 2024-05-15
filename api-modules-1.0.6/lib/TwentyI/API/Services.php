@@ -1,4 +1,5 @@
 <?php
+
 namespace TwentyI\API;
 
 /**
@@ -23,7 +24,8 @@ class Services extends REST
      *     domain this is for, which may affect the end URL.
      * @return string
      */
-    public function singleSignOn($token, $domain_name = null) {
+    public function singleSignOn($token, $domain_name = null)
+    {
         $control_panel = new \TwentyI\API\ControlPanel($token);
         $customisations = $this->getWithFields("/reseller/*/customisations");
         return $control_panel->singleSignOn($customisations, $domain_name);
