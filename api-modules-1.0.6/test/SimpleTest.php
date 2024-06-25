@@ -1,7 +1,15 @@
 <?php
-require "vendor/autoload.php";
-class SimpleTest extends PHPUnit\Framework\TestCase {
-    public function test() {
+
+declare(strict_types=1);
+
+namespace TwentyI\API\Test;
+
+use PHPUnit\Framework\TestCase;
+
+class SimpleTest extends TestCase
+{
+    public function test(): void
+    {
         $this->assertTrue(
             class_exists("TwentyI\API\Authentication"),
             "Authentication: loads"

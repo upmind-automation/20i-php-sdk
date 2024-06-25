@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+
+  #PHP Service
+  twenty-i-php-sdk:
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile
+    container_name: twenty-i-php-sdk
+    tty: true
+    environment:
+      SERVICE_NAME: twenty-i-php-sdk
+      SERVICE_TAGS: dev
+    working_dir: /usr/src/lib
+    volumes:
+      - ./:/usr/src/lib
+    networks:
+      - twenty-i-php-sdk-network
+
+#Docker Networks
+networks:
+  twenty-i-php-sdk-network:
+    driver: bridge

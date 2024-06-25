@@ -1,4 +1,5 @@
 <?php
+
 namespace TwentyI\API;
 
 /**
@@ -25,7 +26,8 @@ class ControlPanel extends REST
      *     domain this is for, which may affect the end URL.
      * @return string The sign-on URL
      */
-    public function singleSignOn($customisations, $domain_name = null) {
+    public function singleSignOn($customisations, $domain_name = null)
+    {
         $response = $this->postWithFields("/login/implicitBranded", [
             "brand" => $customisations,
         ]);

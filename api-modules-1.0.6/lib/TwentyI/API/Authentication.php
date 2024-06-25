@@ -1,4 +1,5 @@
 <?php
+
 namespace TwentyI\API;
 
 /**
@@ -19,23 +20,25 @@ class Authentication extends REST
      * Returns a new access token for the user. This is suitable for ongoing
      * API use, not interactive (control panel) use.
      *
-     * @var string|null $user The user reference, eg. "stack-user:1234"
-     * @var string $from_token The original token to derive from (typically a
+     * @param string|null $user The user reference, eg. "stack-user:1234"
+     * @param string $from_token The original token to derive from (typically a
      * full API access token).
-     * @throws
+     *
      * @return array {
-     *     @var string $access_token
-     *     @var string|null $refresh_token
+     *     access_token: string
+     *     refresh_token: string|null
      * }
+     *
+     * @throws \TwentyI\API\HTTPException
      */
-    public function apiTokenForUser(
-        $user,
-        $from_token
-    ) {
-        if(!$user) {
-            throw new \TwentyI\API\Exception("User is required");
-        } elseif(!is_string($user)) {
-            throw new \TwentyI\API\Exception("User must be a string");
+    public function apiTokenForUser($user, $from_token)
+    {
+        if (!$user) {
+            throw new \TwentyI\API\HTTPException("User is required");
+        }
+
+        if (! is_string($user)) {
+            throw new \TwentyI\API\HTTPException("User must be a string");
         }
         return $this->postWithFields("/login/authenticate", [
             "grant_type" => "refresh_token",
@@ -48,23 +51,25 @@ class Authentication extends REST
      * Returns a new access token for the user. This is suitable for ongoing
      * API use, not interactive (control panel) use.
      *
-     * @var string $user The user reference, eg. "stack-user:1234"
-     * @var string[]|null The scopes to use. Usually unset.
-     * @throws
+     * @param string $user The user reference, eg. "stack-user:1234"
+     * @param string[]|null $scopes The scopes to use. Usually unset.
      * @return array {
-     *     @var string $access_token
-     *     @var string|null $refresh_token
+     *      access_token: string
+     *      refresh_token: string|null
      * }
+     *
+     * @throws \TwentyI\API\HTTPException
      */
-    public function controlPanelTokenForUser(
-        $user,
-        array $scopes = null
-    ) {
-        if(!$user) {
-            throw new \TwentyI\API\Exception("User is required");
-        } elseif(!is_string($user)) {
-            throw new \TwentyI\API\Exception("User must be a string");
+    public function controlPanelTokenForUser($user, array $scopes = null)
+    {
+        if (!$user) {
+            throw new \TwentyI\API\HTTPException("User is required");
         }
+
+        if (!is_string($user)) {
+            throw new \TwentyI\API\HTTPException("User must be a string");
+        }
+
         return $this->postWithFields("/login/authenticate", [
             "grant_type" => "client_credentials",
             "scope" => isset($scopes) ?

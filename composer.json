@@ -10,7 +10,6 @@
             "email": "harry@upmind.com"
         }
     ],
-    "require": {},
     "autoload": {
         "psr-4": {
             "TwentyI\\API\\": [
@@ -18,12 +17,20 @@
             ]
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "TwentyI\\API\\Test\\": [
+                "api-modules-1.0.6/test/"
+            ]
+        }
+    },
     "scripts": {
-        "test-compat": "php56 \"`which phpunit`\" api-modules-1.0.6/test",
+        "test-compat": "php \"`which phpunit`\" api-modules-1.0.6/test",
         "test": "phpunit api-modules-1.0.6/test"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.0"
+        "phpunit/phpunit": "^9.0 || ^10.0 || ^11.0",
+        "phpstan/phpstan": "^1.10"
     },
     "replace": {
         "20i/api-modules": "*"

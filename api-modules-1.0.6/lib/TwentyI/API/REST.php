@@ -1,5 +1,7 @@
 <?php
+
 namespace TwentyI\API;
+
 /**
  * Helper class for 20i API calls.
  *
@@ -9,6 +11,11 @@ namespace TwentyI\API;
  */
 class REST
 {
+    /**
+     * @var string The URL to the service. You should not need to change this.
+     */
+    public static $serviceURL = '';
+
     /**
      * @var bool If false, certificate verification will be bypassed. Only
      *  suitable for testing.
@@ -21,9 +28,9 @@ class REST
      *
      * @param string $url eg. "/foo"
      * @param array $options Curl options
-     * @throws TwentyI\API\CurlException on Curl error
-     * @throws TwentyI\API\HTTPException on HTTP 4xx/5xx
-     * @throws TwentyI\API\HTTPException\PaymentRequired If payment is needed.
+     * @throws \TwentyI\API\CurlException on Curl error
+     * @throws \TwentyI\API\HTTPException on HTTP 4xx/5xx
+     * @throws \TwentyI\API\HTTPException\PaymentRequired If payment is needed.
      * @return string The literal response body
      */
     private function sendRequest($url, array $options = [])
@@ -81,13 +88,12 @@ class REST
     }
 
     /**
-     * @property string The access token to use, which will look like
-     *     'c8e05bcafcd220013'
+     * @var string The access token to use, which will look like 'c8e05bcafcd220013'
      */
     protected $bearerToken;
 
     /**
-     * @property string|null $userAgent The secondary user-agent string
+     * @var string|null $userAgent The secondary user-agent string
      */
     protected $userAgent;
 
@@ -178,7 +184,7 @@ class REST
       * @param string $url eg. "/foo"
       * @param array $fields As usable by http_build_query().
       * @param array $options Any custom Curl options you may need.
-      * @throws TwentyI\API\Exception on error
+      * @throws \TwentyI\API\Exception on error
       * @return mixed The decoded JSON from the response
       */
     public function postWithFields($url, array $fields, array $options = [])
@@ -232,7 +238,8 @@ class REST
      * @param string|null $user_agent
      * @return self
      */
-    public function setUserAgent($user_agent) {
+    public function setUserAgent($user_agent)
+    {
         $this->userAgent = $user_agent;
         return $this;
     }

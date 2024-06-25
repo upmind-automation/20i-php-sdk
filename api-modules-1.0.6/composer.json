@@ -1,18 +1,21 @@
 {
-  "name": "20i/api-modules",
-  "description": "Modules to access the 20i API",
-  "version": "1.0.6",
-  "license": "BSD-3-Clause",
-  "autoload": {
-    "psr-4": {
-      "TwentyI\\API\\": ["lib/TwentyI/API/"]
+    "name": "20i/api-modules",
+    "description": "Modules to access the 20i API",
+    "version": "1.0.6",
+    "license": "BSD-3-Clause",
+    "autoload": {
+        "psr-4": {
+            "TwentyI\\API\\": [
+                "lib/TwentyI/API/"
+            ]
+        }
+    },
+    "scripts": {
+        "test-compat": "php \"`which phpunit`\" test",
+        "test": "phpunit test"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0 || ^10.0 || ^11.0",
+        "phpstan/phpstan": "^1.10"
     }
-  },
-  "scripts": {
-    "test-compat": "php56 \"`which phpunit`\" test",
-    "test": "phpunit test"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^5.0"
-  }
 }
