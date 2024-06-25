@@ -1,7 +1,7 @@
 {
     "name": "upmind/20i-php-sdk",
     "description": "Upmind redistribution/fork of the official 20i PHP SDK",
-    "version": "1.0.6",
+    "version": "1.1.0",
     "type": "library",
     "license": "GPL-3.0-only",
     "authors": [
